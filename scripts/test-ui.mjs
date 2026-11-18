@@ -34,6 +34,7 @@ const context = vm.createContext({
 vm.runInContext(fs.readFileSync(new URL("../web/app.js", import.meta.url), "utf8"), context);
 await new Promise((resolve) => setTimeout(resolve, 0));
 if (vm.runInContext("state.smoothing", context) !== .75) throw new Error("default smoothing must be 0.75");
+if (!element("#globalExperiment").innerHTML.includes("运行中 · ui_test")) throw new Error("experiment status missing from selector");
 for (const view of ["overview","data","languages","resources","metrics","evaluation","logs","config","runtime","alerts","history"]) {
   vm.runInContext(`state.view=${JSON.stringify(view)}; render()`, context);
   if (!element("#app").innerHTML) throw new Error(`${view} rendered empty output`);
