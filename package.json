@@ -1,0 +1,11 @@
+{
+  "name": "dolphin-experiment-center-public",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bash scripts/build.sh",
+    "start": "node render-server.mjs",
+    "test": "npm run build && node scripts/test-worker.mjs && node scripts/test-render-server.mjs && npm run validate",
+    "validate": "node scripts/validate-artifact.mjs"
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dolphin / WeNet 训练实验公开监控中心">
+  <meta name="theme-color" content="#101b2e">
+  <title>Dolphin 实验中心</title>
+  <link rel="stylesheet" href="/styles.css?v=7">
+  <link rel="stylesheet" href="/reference.css?v=10">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span>D</span><div><b>Dolphin</b><small>EXPERIMENT HUB</small></div></div>
+    <div class="label">工作台</div>
+    <nav>
+      <button class="active" data-view="overview"><i>▦</i>实验总览</button>
+      <button data-view="data"><i>◫</i>数据采样</button>
+      <button data-view="languages"><i>◎</i>语种覆盖</button>
+      <button data-view="resources"><i>▤</i>节点资源</button>
+      <button data-view="metrics"><i>⌁</i>指标曲线</button>
+      <button data-view="evaluation"><i>▣</i>模型评估</button>
+      <button data-view="logs"><i>▱</i>日志分析</button>
+      <button data-view="config"><i>☷</i>模型配置</button>
+      <button data-view="runtime"><i>◉</i>运行状态</button>
+      <button data-view="alerts"><i>♢</i>告警通知</button>
+      <button data-view="history"><i>◷</i>更新记录</button>
+    </nav>
+    <div class="collector"><div><i id="pulse"></i><b id="connection">等待采集数据</b></div><small id="freshness">尚未收到服务器快照</small></div>
+  </aside>
+  <main>
+    <header>
+      <div><button id="menu">☰</button><b id="title">实验总览</b><small id="subtitle">/ 今日运行概况</small></div>
+      <div class="actions"><select id="globalExperiment" class="field"><option value="">全部实验</option></select><span id="topStatus" class="badge gray">等待数据</span><span id="topAlerts" class="top-alert">ERROR 0 · WARN 0</span><label>⌕ <input id="search" placeholder="搜索实验、语种或状态"></label><button id="refresh" title="刷新快照">↻</button><span class="public-pill">PUBLIC</span><span class="avatar">LY</span></div>
+    </header>
+    <div class="content" id="app"><div class="loading"><i></i>正在载入 Dolphin 实验快照…</div></div>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js?v=10"></script>
+</body>
+</html>
