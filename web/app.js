@@ -1,4 +1,4 @@
-function initialSmoothing(){try{const value=Number(localStorage.getItem("dolphin-chart-smoothing"));return Number.isFinite(value)&&value>=0&&value<=.99?value:.75}catch{return .75}}
+function initialSmoothing(){try{const saved=localStorage.getItem("dolphin-chart-smoothing");if(saved===null)return .75;const value=Number(saved);return Number.isFinite(value)&&value>=0&&value<=.99?value:.75}catch{return .75}}
 const state={data:null,view:"overview",query:"",selected:"",metric:"loss",smoothing:initialSmoothing(),chartViews:{}};
 const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt=n=>n==null?"—":Number(n).toLocaleString("zh-CN"),truth=v=>v==null?"未配置":v?"已启用":"未启用";
